@@ -117,7 +117,7 @@ class GUI:
 
 playerBoard = Board.Board()
 computerBoard = Board.Board()
-computerPlayer = ComputerPlayers.ProbabilityAI(playerBoard, computerBoard, 1, 5, 25, 40, 20, 20)
+computerPlayer = ComputerPlayers.ProbabilityAI(playerBoard, computerBoard, 2, 5, 16, 4, 2, 9)
 # computerPlayer = ComputerPlayers.BetterAI(playerBoard, computerBoard)
 game = Game.Game(playerBoard, computerBoard, computerPlayer)
 gui = GUI(game)
