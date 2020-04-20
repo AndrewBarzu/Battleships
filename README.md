@@ -3,6 +3,7 @@ Battleships python game
 
 This game was made using pygame for the gui.
 
+To play just start the GUI.py file and it should run. You need python3.
 As for the buttons used, to change the orientation of the ships you can press W (vertical) and S (horizontal), click to place or shoot. 
 The game also features 3 AI-s, which have to be manually changed in code. That can be done easily tho, you just go in GUI.py and change
 the computerPlayer variable from ComputerPlayers.ProbabilityAI(playerBoard, computerBoard, 2, 5, 16, 4, 2, 9) to ComputerPlayers.BetterAI(playerBoard, computerBoard)
