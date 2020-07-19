@@ -59,7 +59,7 @@ class GUI:
                 if event.type == pygame.QUIT:
                     sys.exit()
 
-                if gameTime is True:
+                if gameTime:
                     if event.type == pygame.KEYDOWN and phase == 'prep':
                         if event.key == pygame.K_w:
                             orientation = 'V'

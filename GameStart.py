@@ -17,5 +17,3 @@ if __name__ == "__main__":
     if interface == 'ui':
         ui = UI(game)
         AppStart(ui)
-    else:
-        pass

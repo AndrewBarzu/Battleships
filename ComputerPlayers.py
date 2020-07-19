@@ -28,10 +28,7 @@ class AI:
             y = random.randint(0, 7)
             if self._takenHits[8*x + y] == ' ':
                 hit = self._hitBoard.hit(x, y)
-                if hit is True:
-                    self._takenHits[8*x + y] = 'X'
-                else:
-                    self._takenHits[8*x + y] = '/'
+                self._takenHits[8*x + y] = 'X' if hit is True else '/'
                 break
 
 class BetterAI(AI):
@@ -87,8 +84,6 @@ class BetterAI(AI):
             if self._takenHits[8 * nextTarget[0] + nextTarget[1]] == ' ':
                 self._shoot(x=nextTarget[0], y=nextTarget[1])
                 break
-            else:
-                pass
 
 
     def take_shot(self):
@@ -116,7 +111,6 @@ class ProbabilityAI(AI):
         return 0 <= index < 64
 
     def _fitShip(self, x, y, ship, mainQuota, xquota, morexQuota):
-        myQuotas = {2: 7.4, 3: 4.7, 4: 3.5}
         if self._valid_index(8 * x + y + ship-1):
             count = 0
             quota = mainQuota
@@ -143,6 +137,7 @@ class ProbabilityAI(AI):
             count = 0
             quota = mainQuota
             xcount = 0
+            myQuotas = {2: 7.4, 3: 4.7, 4: 3.5}
             for i in range(ship):
                 if self._takenHits[8 * (x + i) + y] == '/':
                     self._probabilityMap[8 * (x + i) + y] = 0
@@ -203,7 +198,7 @@ class ProbabilityAI(AI):
         for index in range(64):
             x = index // 8
             y = index % 8
-            if self._takenHits[index] == '/' or self._takenHits[index] == 'X':
+            if self._takenHits[index] in ['/', 'X']:
                 self._probabilityMap[index] = 0
             if self._probabilityMap[index] > maxProbability:
                 maxProbability = self._probabilityMap[index]

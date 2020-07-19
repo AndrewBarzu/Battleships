@@ -34,16 +34,13 @@ median = 0
 player1wins = 0
 player2wins = 0
 
-for i in range(1000):
+for _ in range(1000):
     game = AiGame()
     count = 0
     myPlayer = False
     while not game.is_finished():
         myPlayer = not myPlayer
-        if myPlayer:
-            game.hit(myPlayer)
-        else:
-            game.hit(myPlayer)
+        game.hit(myPlayer)
         count += 1
     if myPlayer:
         player1wins += 1
